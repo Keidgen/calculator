@@ -1,40 +1,29 @@
 package pro.sky.java.course2.calculator.service;
 
 import org.springframework.stereotype.Service;
+import pro.sky.java.course2.calculator.exceptions.ZeroDivideException;
 
 @Service
 public class CalculatorServiceImpl implements CalculatorService {
     @Override
-    public String doPlus(String num1, String num2) {
-        int number1 = Integer.parseInt(num1);
-        int number2 = Integer.parseInt(num2);
-        int sum = number1 + number2;
-        return num1 + " + " + num2 + " = " + sum;
+    public Integer doPlus(Integer num1, Integer num2) {
+        return num1 + num2;
     }
     @Override
-    public String doMinus(String num1, String num2) {
-        int number1 = Integer.parseInt(num1);
-        int number2 = Integer.parseInt(num2);
-        int minus = number1 - number2;
-        return num1 + " - " + num2 + " = " + minus;
+    public Integer doMinus(Integer num1, Integer num2) {
+        return num1 - num2;
     }
     @Override
-    public String doMultiply(String num1, String num2) {
-        int number1 = Integer.parseInt(num1);
-        int number2 = Integer.parseInt(num2);
-        int multiply = number1 * number2;
-        return num1 + " * " + num2 + " = " + multiply;
+    public Integer doMultiply(Integer num1, Integer num2) {
+        return num1 * num2;
     }
 
     @Override
-    public String doDivide(String num1, String num2) {
-        int number1 = Integer.parseInt(num1);
-        int number2 = Integer.parseInt(num2);
-        if (number2 == 0) {
-            return "Ошибка! Делить на ноль нельзя!";
+    public Integer doDivide(Integer num1, Integer num2) {
+        if (num2 == 0) {
+            throw new ZeroDivideException();
         }
-        int divide = number1 / number2;
-        return num1 + " / " + num2 + " = " + divide;
+        return num1 / num2;
     }
 
 }
