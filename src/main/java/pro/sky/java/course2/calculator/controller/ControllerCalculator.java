@@ -20,21 +20,21 @@ public class ControllerCalculator {
         return "Добро пожаловать в калькулятор";
     }
     @GetMapping("/plus")
-    public String plus(@RequestParam String num1, @RequestParam String num2) {
+    public Integer plus(@RequestParam Integer num1, @RequestParam Integer num2) {
         return calculatorService.doPlus(num1,num2);
     }
 
     @GetMapping("/minus")
-    public String minus(@RequestParam String num1, @RequestParam String num2) {
+    public Integer minus(@RequestParam Integer num1, @RequestParam Integer num2) {
         return calculatorService.doMinus(num1,num2);
     }
     @GetMapping("/multiply")
-    public String multiply(@RequestParam String num1, @RequestParam String num2) {
+    public Integer multiply(@RequestParam Integer num1, @RequestParam Integer num2) {
         return calculatorService.doMultiply(num1,num2);
     }
 
     @GetMapping("/divide")
-    public String divide(@RequestParam String num1, @RequestParam String num2) {
+    public Integer divide(@RequestParam Integer num1, @RequestParam Integer num2) {
         return calculatorService.doDivide(num1,num2);
     }
 }
